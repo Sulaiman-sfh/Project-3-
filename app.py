@@ -8,10 +8,10 @@ from streamlit_option_menu import option_menu
 from streamlit_vizzu import VizzuChart, Data, Config, Style
 from plotly.subplots import make_subplots
 
-villas_df = pd.read_csv('https://github.com/Sulaiman-sfh/Project-3-/blob/master/Clean%20Data/clean_aqqar_villas2.csv')
-land_df = pd.read_csv('https://github.com/Sulaiman-sfh/Project-3-/blob/master/Clean%20Data/clean_land.csv')
-appartment_df = pd.read_csv('https://github.com/Sulaiman-sfh/Project-3-/blob/master/Clean%20Data/clean_real_estate.csv')
-riy = pd.read_csv("https://github.com/Sulaiman-sfh/Project-3-/blob/master/Clean%20Data/clean_quarter_report.csv")
+villas_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_aqqar_villas2.csv')
+land_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_land.csv')
+appartment_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_real_estate.csv')
+riy = pd.read_csv("https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_quarter_report.csv")
 
 
 with st.sidebar:
