@@ -3,8 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
-import matplotlib as plt
-import seaborn as sns
+
 from streamlit_option_menu import option_menu
 from streamlit_vizzu import VizzuChart, Data, Config, Style
 from plotly.subplots import make_subplots
