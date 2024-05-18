@@ -141,7 +141,7 @@ if selected == "Home page":
 
                 - South Region: Almarouh, 2018: 1153, 2023: 1681, Change: Increased by 46%.
 
-                - West Region: Almaathur, 2018: 2162, 2023: 4508, Change: Increased by 108%.
+                - West Region: Labn, 2018: 996, 2023: 2531, Change: Increased by 154%.
 
                 - East Region: Qortuba, 2018: 2197, 2023: 4450, Change: Increased by 103%.
 
