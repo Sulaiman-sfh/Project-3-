@@ -13,8 +13,8 @@ land_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-
 appartment_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_real_estate.csv')
 riy = pd.read_csv("https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_quarter_report.csv")
 
-risd_land = pd.read_csv("Clean Data\\risd_land.csv")
-riy_comm1 = pd.read_csv("Clean Data\\riy_comm1.csv")
+risd_land = pd.read_csv("https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/risd_land.csv")
+riy_comm1 = pd.read_csv("https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/riy_comm1.csv")
 
 
 with st.sidebar:
@@ -135,7 +135,7 @@ if selected == "Home page":
         height=600
     )
     st.plotly_chart(fig)
-    
+
 
     st.title("Conclusion")
     st.markdown("""In conclusion, the analysis highlights significant price variations across Riyadh, offering critical insights for potential buyers and investors.
