@@ -4,3 +4,4 @@ plotly
 numpy
 streamlit_option_menu
 streamlit_vizzu
+statsmodels
