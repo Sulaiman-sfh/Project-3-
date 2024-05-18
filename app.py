@@ -135,7 +135,17 @@ if selected == "Home page":
         height=600
     )
     st.plotly_chart(fig)
+    st.subheader("Top Districts in Riyadh and Their Meter Price Changes from 2018 to 2023")
+    st.markdown("""
+                - North Region: Alnakheel, 2018: 3173, 2023: 6886, Change: Increased by 117%.
 
+                - South Region: Almarouh, 2018: 1153, 2023: 1681, Change: Increased by 46%.
+
+                - West Region: Almaathur, 2018: 2162, 2023: 4508, Change: Increased by 108%.
+
+                - East Region: Qortuba, 2018: 2197, 2023: 4450, Change: Increased by 103%.
+
+                - Central Region: Alhada, 2018: 3000, 2023: 5300, Change: Increased by 77%.""")
 
     st.title("Conclusion")
     st.markdown("""In conclusion, the analysis highlights significant price variations across Riyadh, offering critical insights for potential buyers and investors.
