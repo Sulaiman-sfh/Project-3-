@@ -13,6 +13,9 @@ land_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-
 appartment_df = pd.read_csv('https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_real_estate.csv')
 riy = pd.read_csv("https://raw.githubusercontent.com/Sulaiman-sfh/Project-3-/master/Clean%20Data/clean_quarter_report.csv")
 
+risd_land = pd.read_csv("Clean Data\\risd_land.csv")
+riy_comm1 = pd.read_csv("Clean Data\\riy_comm1.csv")
+
 
 with st.sidebar:
     selected = option_menu(
@@ -39,7 +42,7 @@ if selected == "Home page":
     meanss = riy.pivot_table(values='Meter_Price_W_Avg_IQR', index='district_ar', columns='yearnumber', aggfunc='mean').reset_index()
     # Adjust the file path and format accordingly
 
-    st.header("Filter by Tags")
+    st.header("Historical analysis for Riyadh Real Estate")
 
     loc = riy['location'].unique()
     loc = loc[loc != 'Unknown']
@@ -75,6 +78,64 @@ if selected == "Home page":
 
     # Show the figure
     st.plotly_chart(fig)
+
+
+    #second plotly graph
+    risd_mean = risd_land.pivot_table(values='Meter_Price_W_Avg_IQR', index='district_ar', columns='yearnumber', aggfunc='mean').reset_index()
+    comm_mean = riy_comm1.pivot_table(values='Meter_Price_W_Avg_IQR', index='district_ar', columns='yearnumber', aggfunc='mean').reset_index()
+
+    loc2 = riy['location'].unique()
+    loc2 = loc2[loc2 != 'Unknown']
+    loc2 = np.insert(loc2, 0, 'الكل')
+
+    # Add unique key to st.selectbox
+    option2 = st.selectbox("Choose the proviance you want:", loc2, key='selectbox_province')
+    if option2 == 'الكل':
+        filtered_riy = riy.copy()
+    else:
+        filtered_riy = riy[riy['location'] == option2]
+
+    district = filtered_riy['district_ar'].unique()
+
+    # Add unique key to st.multiselect
+    selected_tags2 = st.multiselect("Select tags", options=list(district), default=list(district), key='multiselect_tags')
+
+    fig = go.Figure()
+    for district in selected_tags2:
+        district_data = risd_mean[risd_mean['district_ar'] == district]
+        if not district_data.empty:
+            fig.add_trace(go.Scatter(x=district_data.columns[1:], y=district_data.values[0][1:], mode='lines+markers', name=district))
+
+    fig.update_layout(
+        title='Residual Estates Changes for Different Districts',
+        xaxis_title='Year',
+        yaxis_title='Meter Price',
+        legend_title='District',
+        width=800,
+        height=600
+    )
+
+    st.plotly_chart(fig)
+
+
+
+    #third plotly graph
+    fig = go.Figure()
+    for district in selected_tags2:
+        district_data = comm_mean[comm_mean['district_ar'] == district]
+        if not district_data.empty:
+            fig.add_trace(go.Scatter(x=district_data.columns[1:], y=district_data.values[0][1:], mode='lines+markers', name=district))
+
+    fig.update_layout(
+        title='Commercial Estates Changes for Different Districts ',
+        xaxis_title='Year',
+        yaxis_title='Meter Price',
+        legend_title='District',
+        width=800,
+        height=600
+    )
+    st.plotly_chart(fig)
+    
 
     st.title("Conclusion")
     st.markdown("""In conclusion, the analysis highlights significant price variations across Riyadh, offering critical insights for potential buyers and investors.
